@@ -18,11 +18,11 @@ class LoginPage(object):
         self.driver.get(url)
 
     def input_credentials(self,username,password):
-        self.driver.find_element(self.un).send_keys(username)
-        self.driver.find_element(self.pw).send_keys(password)
+        self.driver.find_element(*self.un).send_keys(username)
+        self.driver.find_element(*self.pw).send_keys(password)
 
     def click_login_btn(self):
-        self.driver.find_element(self.login_btn).click()
+        self.driver.find_element(*self.login_btn).click()
 
 
 
@@ -30,3 +30,4 @@ login_page = LoginPage(webdriver.Firefox())
 login_page.go_to_url("http://the-internet.herokuapp.com/login")
 login_page.input_credentials("tomsmith", "SuperSecretPassword!")
 login_page.click_login_btn()
+login_page.driver.quit()
